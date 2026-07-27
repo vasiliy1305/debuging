@@ -35,3 +35,13 @@ fn averages_only_positive() {
     // Ожидается (5 + 15) / 2 = 10, но текущая реализация делит на все элементы.
     assert!((broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
 }
+
+#[test]
+fn sums_even_numbers_empty_slice() {
+    assert_eq!(broken_app::sum_even(&[]), 0);
+}
+
+#[test]
+fn use_after_free_returns_expected_value() {
+    assert_eq!(broken_app::use_after_free(), 84);
+}
