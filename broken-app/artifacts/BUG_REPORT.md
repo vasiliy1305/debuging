@@ -1,4 +1,48 @@
-va@Lenovo:~/projects/debuging/broken-app$ cargo test
+# cargo check (без исправлений)
+
+va@Lenovo:~/projects/debuging/broken-app$ cargo check
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:60:15
+   |
+60 |     let val = *raw;
+   |               ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> src/lib.rs:61:10
+   |
+61 |     drop(Box::from_raw(raw));
+   |          ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:62:11
+   |
+62 |     val + *raw
+   |           ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+
+
+# cargo test (без исправлений)
+
+
+va@Lenovo:~/projects/debuging/broken-app$ cargo test -- --nocapture
 warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
   --> src/lib.rs:60:15
    |
@@ -51,18 +95,23 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
      Running tests/integration.rs (target/debug/deps/integration-2923de752302df34)
 
 running 6 tests
-test averages_only_positive ... FAILED
+
+thread 'averages_only_positive' (49678) panicked at tests/integration.rs:36:5:
+assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 test counts_non_zero_bytes ... ok
-test dedup_preserves_uniques ... ok
+test averages_only_positive ... FAILED
 test fib_small_numbers ... ok
 
-thread 'sums_even_numbers' (15294) panicked at src/lib.rs:11:29:
+thread 'sums_even_numbers' (49683) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
 thread caused non-unwinding panic. aborting.
+test normalize_simple ... ok
+test dedup_preserves_uniques ... ok
 error: test failed, to rerun pass `--test integration`
 
 Caused by:
-  process didn't exit successfully: `/home/va/projects/debuging/broken-app/target/debug/deps/integration-2923de752302df34` (signal: 6, SIGABRT: process abort signal)
+  process didn't exit successfully: `/home/va/projects/debuging/broken-app/target/debug/deps/integration-2923de752302df34 --nocapture` (signal: 6, SIGABRT: process abort signal)
 va@Lenovo:~/projects/debuging/broken-app$
