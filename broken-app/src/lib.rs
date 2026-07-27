@@ -38,7 +38,6 @@ pub fn average_positive(values: &[i64]) -> f64 {
     }
 }
 
-
 pub fn use_after_free() -> i32 {
     let value = 42;
     value + value

@@ -1,0 +1,105 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 13  of event 'cycles:u'
+# Event count (approx.): 624503
+#
+# Children      Self  Command  Shared Object         Symbol                          
+# ........  ........  .......  ....................  ................................
+#
+    42.38%     0.00%  demo     [unknown]             [.] 0x0000000000000040
+            |
+            ---0x40
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--23.38%--memcpy@@GLIBC_2.14
+               |          
+                --19.00%--_dl_map_object_deps
+                          _dl_sort_maps
+
+    42.38%     0.00%  demo     ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+            |
+            ---_dl_sysdep_start
+               dl_main
+               |          
+               |--23.38%--memcpy@@GLIBC_2.14
+               |          
+                --19.00%--_dl_map_object_deps
+                          _dl_sort_maps
+
+    42.38%     0.00%  demo     ld-linux-x86-64.so.2  [.] dl_main
+            |
+            ---dl_main
+               |          
+               |--23.38%--memcpy@@GLIBC_2.14
+               |          
+                --19.00%--_dl_map_object_deps
+                          _dl_sort_maps
+
+    32.39%    32.39%  demo     libc.so.6             [.] sysmalloc
+            |
+            ---sysmalloc
+
+    23.38%    23.38%  demo     libc.so.6             [.] memcpy@@GLIBC_2.14
+            |
+            ---0x40
+               _dl_sysdep_start
+               dl_main
+               memcpy@@GLIBC_2.14
+
+    19.00%    19.00%  demo     ld-linux-x86-64.so.2  [.] _dl_sort_maps
+            |
+            ---0x40
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               _dl_sort_maps
+
+    19.00%     0.00%  demo     ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+            |
+            ---_dl_map_object_deps
+               _dl_sort_maps
+
+    10.93%    10.93%  demo     ld-linux-x86-64.so.2  [.] strcmp
+            |
+            ---strcmp
+
+     6.78%     6.78%  demo     ld-linux-x86-64.so.2  [.] _dl_start
+            |
+            ---_dl_start_user
+               _dl_start
+
+     6.78%     0.00%  demo     ld-linux-x86-64.so.2  [.] _dl_start_user
+            |
+            ---_dl_start_user
+               _dl_start
+
+     6.49%     6.49%  demo     ld-linux-x86-64.so.2  [.] intel_check_word.constprop.0
+            |
+            ---0x4000000
+               intel_check_word.constprop.0
+
+     6.49%     0.00%  demo     [unknown]             [.] 0x0000000004000000
+            |
+            ---0x4000000
+               intel_check_word.constprop.0
+
+     1.03%     0.14%  demo     ld-linux-x86-64.so.2  [.] _start
+            |
+            ---_start
+               |          
+                --0.88%--0xffffffff97000be0
+
+     0.88%     0.88%  demo     [unknown]             [k] 0xffffffff97000be0
+            |
+            ---_start
+               0xffffffff97000be0
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
