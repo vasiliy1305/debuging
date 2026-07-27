@@ -1,4 +1,4 @@
-# cargo check (без исправлений)
+### cargo check (без исправлений)
 
 va@Lenovo:~/projects/debuging/broken-app$ cargo check
 warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
@@ -39,7 +39,7 @@ warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
 
 
-# cargo test (без исправлений)
+### cargo test (без исправлений)
 
 
 va@Lenovo:~/projects/debuging/broken-app$ cargo test -- --nocapture
