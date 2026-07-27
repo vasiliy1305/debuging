@@ -1,0 +1,81 @@
+    Finished `bench` profile [optimized + debuginfo] target(s) in 0.05s
+     Running benches/criterion.rs (target/release/deps/criterion-d8e7ff052d342d7d)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even_broken/50000
+Benchmarking sum_even_broken/50000: Warming up for 3.0000 s
+Benchmarking sum_even_broken/50000: Collecting 100 samples in estimated 5.0199 s (293k iterations)
+Benchmarking sum_even_broken/50000: Analyzing
+sum_even_broken/50000   time:   [18.188 µs 18.480 µs 18.842 µs]
+                        change: [-2.9347% -1.0213% +1.4647%] (p = 0.37 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+Benchmarking sum_even_broken/1000000
+Benchmarking sum_even_broken/1000000: Warming up for 3.0000 s
+Benchmarking sum_even_broken/1000000: Collecting 100 samples in estimated 7.3661 s (15k iterations)
+Benchmarking sum_even_broken/1000000: Analyzing
+sum_even_broken/1000000 time:   [509.91 µs 522.84 µs 537.57 µs]
+                        change: [+4.9014% +8.4322% +12.452%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 12 outliers among 100 measurements (12.00%)
+  4 (4.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking slow_fib_broken/20
+Benchmarking slow_fib_broken/20: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/20: Collecting 100 samples in estimated 5.0478 s (237k iterations)
+Benchmarking slow_fib_broken/20: Analyzing
+slow_fib_broken/20      time:   [20.995 µs 21.421 µs 21.881 µs]
+                        change: [-0.1346% +1.3511% +3.1123%] (p = 0.09 > 0.05)
+                        No change in performance detected.
+Found 11 outliers among 100 measurements (11.00%)
+  3 (3.00%) low mild
+  2 (2.00%) high mild
+  6 (6.00%) high severe
+Benchmarking slow_fib_broken/28
+Benchmarking slow_fib_broken/28: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/28: Collecting 100 samples in estimated 9.8840 s (10k iterations)
+Benchmarking slow_fib_broken/28: Analyzing
+slow_fib_broken/28      time:   [972.29 µs 978.33 µs 984.32 µs]
+                        change: [-1.3290% -0.3388% +0.5235%] (p = 0.50 > 0.05)
+                        No change in performance detected.
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+Benchmarking slow_fib_broken/32
+Benchmarking slow_fib_broken/32: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/32: Collecting 100 samples in estimated 5.2072 s (700 iterations)
+Benchmarking slow_fib_broken/32: Analyzing
+slow_fib_broken/32      time:   [6.7444 ms 6.7917 ms 6.8382 ms]
+                        change: [+0.6371% +1.6173% +2.5583%] (p = 0.00 < 0.05)
+                        Change within noise threshold.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) low mild
+
+Benchmarking slow_dedup_broken/10000
+Benchmarking slow_dedup_broken/10000: Warming up for 3.0000 s
+Benchmarking slow_dedup_broken/10000: Collecting 100 samples in estimated 5.8656 s (600 iterations)
+Benchmarking slow_dedup_broken/10000: Analyzing
+slow_dedup_broken/10000 time:   [9.9665 ms 10.028 ms 10.090 ms]
+                        change: [-3.6281% -1.6815% -0.1745%] (p = 0.05 > 0.05)
+                        No change in performance detected.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+Benchmarking slow_dedup_broken/100000
+Benchmarking slow_dedup_broken/100000: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 104.9s, or reduce sample count to 10.
+Benchmarking slow_dedup_broken/100000: Collecting 100 samples in estimated 104.95 s (100 iterations)
+Benchmarking slow_dedup_broken/100000: Analyzing
+slow_dedup_broken/100000
+                        time:   [1.0217 s 1.0269 s 1.0326 s]
+                        change: [-6.8978% -5.4350% -4.0809%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) low mild
+  1 (1.00%) high mild
+  4 (4.00%) high severe
+

@@ -1,0 +1,62 @@
+   Compiling broken-app v0.1.0 (/home/va/projects/debuging/broken-app)
+    Finished `bench` profile [optimized + debuginfo] target(s) in 2.34s
+     Running benches/criterion.rs (target/release/deps/criterion-d8e7ff052d342d7d)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even_broken/50000
+Benchmarking sum_even_broken/50000: Warming up for 3.0000 s
+Benchmarking sum_even_broken/50000: Collecting 100 samples in estimated 5.0614 s (268k iterations)
+Benchmarking sum_even_broken/50000: Analyzing
+sum_even_broken/50000   time:   [18.660 µs 18.777 µs 18.893 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) low mild
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+Benchmarking sum_even_broken/1000000
+Benchmarking sum_even_broken/1000000: Warming up for 3.0000 s
+Benchmarking sum_even_broken/1000000: Collecting 100 samples in estimated 7.4804 s (15k iterations)
+Benchmarking sum_even_broken/1000000: Analyzing
+sum_even_broken/1000000 time:   [488.14 µs 490.85 µs 493.65 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking slow_fib_broken/20
+Benchmarking slow_fib_broken/20: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/20: Collecting 100 samples in estimated 5.0000 s (964M iterations)
+Benchmarking slow_fib_broken/20: Analyzing
+slow_fib_broken/20      time:   [5.0449 ns 5.0767 ns 5.1080 ns]
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) low mild
+  1 (1.00%) high mild
+Benchmarking slow_fib_broken/28
+Benchmarking slow_fib_broken/28: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/28: Collecting 100 samples in estimated 5.0000 s (862M iterations)
+Benchmarking slow_fib_broken/28: Analyzing
+slow_fib_broken/28      time:   [5.6653 ns 5.7055 ns 5.7415 ns]
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) low mild
+  1 (1.00%) high severe
+Benchmarking slow_fib_broken/32
+Benchmarking slow_fib_broken/32: Warming up for 3.0000 s
+Benchmarking slow_fib_broken/32: Collecting 100 samples in estimated 5.0000 s (1.2B iterations)
+Benchmarking slow_fib_broken/32: Analyzing
+slow_fib_broken/32      time:   [3.9500 ns 3.9746 ns 3.9983 ns]
+Found 5 outliers among 100 measurements (5.00%)
+  4 (4.00%) low mild
+  1 (1.00%) high severe
+
+Benchmarking slow_dedup_broken/10000
+Benchmarking slow_dedup_broken/10000: Warming up for 3.0000 s
+Benchmarking slow_dedup_broken/10000: Collecting 100 samples in estimated 5.0627 s (126k iterations)
+Benchmarking slow_dedup_broken/10000: Analyzing
+slow_dedup_broken/10000 time:   [15.882 µs 16.511 µs 17.027 µs]
+Benchmarking slow_dedup_broken/100000
+Benchmarking slow_dedup_broken/100000: Warming up for 3.0000 s
+Benchmarking slow_dedup_broken/100000: Collecting 100 samples in estimated 5.1426 s (10k iterations)
+Benchmarking slow_dedup_broken/100000: Analyzing
+slow_dedup_broken/100000
+                        time:   [244.38 µs 254.09 µs 263.91 µs]
+Found 16 outliers among 100 measurements (16.00%)
+  6 (6.00%) high mild
+  10 (10.00%) high severe
+

@@ -1,0 +1,20 @@
+warning: unused import: `Duration`
+ --> benches/baseline.rs:2:17
+  |
+2 | use std::time::{Duration, Instant};
+  |                 ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `broken-app` (bench "baseline") generated 1 warning (run `cargo fix --bench "baseline" -p broken-app` to apply 1 suggestion)
+    Finished `bench` profile [optimized + debuginfo] target(s) in 0.03s
+     Running benches/baseline.rs (target/release/deps/baseline-0a21a7451a235f43)
+sum_even: 13.627µs
+slow_fib: 5.017916ms
+slow_dedup: 11.197758ms
+sum_even: 28.398µs
+slow_fib: 5.033259ms
+slow_dedup: 11.618387ms
+sum_even: 39.547µs
+slow_fib: 5.824679ms
+slow_dedup: 11.305249ms
