@@ -6,7 +6,6 @@ pub fn slow_dedup(values: &[u64]) -> Vec<u64> {
     out
 }
 
-
 /// Классическая экспоненциальная реализация без мемоизации — будет медленной на больших n.
 pub fn slow_fib(n: u64) -> u64 {
     let mut previous = 0;
@@ -19,8 +18,6 @@ pub fn slow_fib(n: u64) -> u64 {
     }
     previous
 }
-
-
 
 #[cfg(test)]
 mod tests {
