@@ -41,8 +41,13 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 
+### Поменял на:
+static COUNTER: AtomicU64 = AtomicU64::new(0);
 
-
+pub fn read_after_sleep() -> u64 {
+    // thread::sleep(Duration::from_millis(10)); 
+    COUNTER.load(Ordering::SeqCst)
+}
 
 
 ### Повторная проверка:
@@ -67,3 +72,12 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+### поправил:
+
+pub fn normalize(input: &str) -> String {
+    input.split_whitespace().collect::<String>().to_lowercase()
+}
+
+### тест:
+test normalize_removes_all_ws ... ok

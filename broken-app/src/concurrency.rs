@@ -28,7 +28,7 @@ pub fn race_increment(iterations: usize, threads: usize) -> u64 {
 
 /// Плохая «синхронизация» — просто sleep, возвращает потенциально устаревшее значение.
 pub fn read_after_sleep() -> u64 {
-    thread::sleep(Duration::from_millis(10));
+    // thread::sleep(Duration::from_millis(10)); удалил
     COUNTER.load(Ordering::SeqCst)
 }
 

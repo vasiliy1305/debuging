@@ -15,9 +15,8 @@ pub fn leak_buffer(input: &[u8]) -> usize {
 /// Небрежная нормализация строки: удаляем пробелы и приводим к нижнему регистру,
 /// но игнорируем повторяющиеся пробелы/табуляции внутри текста.
 pub fn normalize(input: &str) -> String {
-    input.replace(' ', "").to_lowercase()
+    input.split_whitespace().collect::<String>().to_lowercase()
 }
-
 /// Логическая ошибка: усредняет по всем элементам, хотя требуется учитывать
 /// только положительные. Деление на длину среза даёт неверный результат.
 pub fn average_positive(values: &[i64]) -> f64 {
@@ -41,4 +40,10 @@ pub fn average_positive(values: &[i64]) -> f64 {
 pub fn use_after_free() -> i32 {
     let value = 42;
     value + value
+}
+
+
+#[test]
+fn normalize_removes_all_ws() {
+    assert_eq!(normalize("A\tb c\nD"), "abcd");
 }

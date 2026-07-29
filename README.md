@@ -68,3 +68,5 @@
 - perf
 - FlameGraph
 
+Заменил:
+static COUNTER: AtomicU64 = AtomicU64::new(0);
